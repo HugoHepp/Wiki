@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Wiki : {{name}}
+{% endblock %}
+
+{% block body %}
+
+	{% if not quote %}
+
+		<p>Sorry this article doesn't exist yet!</p>
+
+	{% else %}
+
+		{{quote|safe}}
+
+		<a href="edit/">Edit</a>
+
+	{% endif %}
+
+{% endblock %}

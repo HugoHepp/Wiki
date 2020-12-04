@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Wiki : {{name}}
+{% endblock %}
+
+{% block body %}
+
+
+
+	{% if searchterm|upper not in entries|upper  %}
+
+		<p>Sorry, we didn't find what you are looking for</p>
+
+	{% else %}
+
+		<ul>
+	        {% for entry in entries  %}
+	        	{% if searchterm|upper in entry|upper  %}
+	            <a href="{{entry}}"><li>{{ entry }}</li></a>
+	            {% endif%}
+	        {% endfor %}
+	    </ul>
+	
+	{% endif %}
+
+{% endblock %}
